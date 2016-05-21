@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MainMenuScene.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="cc.CustomNode.html">CustomNode</a><ul class='methods'><li data-type='method'><a href="cc.CustomNode.html#.create">create</a></li><li data-type='method'><a href="cc.CustomNode.html#ctor">ctor</a></li><li data-type='method'><a href="cc.CustomNode.html#funcA">funcA</a></li><li data-type='method'><a href="cc.CustomNode.html#funcB">funcB</a></li></ul></li><li><a href="cc.NamespaceB.SomeManager.html">SomeManager</a><ul class='methods'><li data-type='method'><a href="cc.NamespaceB.SomeManager.html#.getInstance">getInstance</a></li><li data-type='method'><a href="cc.NamespaceB.SomeManager.html#funcA">funcA</a></li><li data-type='method'><a href="cc.NamespaceB.SomeManager.html#funcB">funcB</a></li><li data-type='method'><a href="cc.NamespaceB.SomeManager.html#funcWithCallback">funcWithCallback</a></li><li data-type='method'><a href="cc.NamespaceB.SomeManager.html#init">init</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="cc.html">cc</a></li><li><a href="cc.NamespaceA.html">NamespaceA</a><ul class='methods'><li data-type='method'><a href="cc.NamespaceA.html#.SomeUtil">SomeUtil</a></li></ul></li><li><a href="cc.NamespaceB.html">NamespaceB</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">MainMenuScene.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+
+/**
+ * cc Namespace.
+ * @namespace
+ */
+var cc = cc || {};
+
+/**
+ * Global Custom Tag
+ * @constant
+ * @type Number
+ */
+cc.CUSTOM_TAG = 99999;
+
+
+/**
+ * cc.NamespaceA Namespace.
+ * @namespace
+ */
+cc.NamespaceA = cc.NamespaceA || {};
+
+
+/** 
+ * SomeUtil -- A static util function.
+ * @param {int} param1 - param1
+ * @param {int} param2 - param2
+ * @param {int} param3 - param3
+ * @return {int}
+ */
+cc.NamespaceA.SomeUtil = function (param1, param2, param3) {
+    return param1 + param2 + param3;
+};
+
+
+/**
+ * cc.NamespaceB Namespace.
+ * @namespace
+ */
+cc.NamespaceB = cc.NamespaceB || {};
+
+/**
+ * @class
+ * @classdesc cc.NamespaceB.SomeManager
+ */
+cc.NamespaceB.SomeManager = function() {
+    /** 
+     * init method
+     * @function
+     * @param {string} tag - some tag
+     * @see cc.NamespaceB.SomeManager#funcB
+     */
+    this.init = function(tag) {
+    };
+    /** 
+     * funcA method
+     * @function
+     */
+    this.funcA = function() {};
+    /** 
+     * funcB method
+     * @function
+     */
+    this.funcB = function() {};
+    /** 
+     * callBackFunc method
+     * @function
+     * @param {cc.NamespaceB.SomeManager~customCallback} callbackFunc - A callback function.
+     */
+    this.funcWithCallback = function(callbackFunc) {
+        callbackFunc();
+    }
+    /**
+     * This callback for funcWithCallback method.
+     * @callback cc.NamespaceB.SomeManager~customCallback
+     * @param {object} event - Event object.
+     */
+};
+
+var _sharedSomeManager = null;
+/** 
+ * cc.NamespaceB.SomeManager singleton.
+ * @return {cc.NamespaceB.SomeManager}
+ * @example
+ * // example
+ * cc.NamespaceB.SomeManager.getInstance().funcA();
+ */
+cc.NamespaceB.SomeManager.getInstance = function() {
+    if (_sharedSomeManager == null) {
+        _sharedSomeManager = new cc.NamespaceB.SomeManager();
+        _sharedSomeManager.init();
+    }
+    return _sharedSomeManager;
+};
+
+
+/**
+ * @class
+ * @extends cc.Node
+ * @property {Number}   a   - property a of cc.CustomNode
+ * @property {Number}   b   - property b of cc.CustomNode
+ * @property {Number}   c   - property c of cc.CustomNode
+ * @classdesc cc.CustomNode
+ */
+cc.CustomNode = cc.Node.extend(/** @lends cc.CustomNode# */{
+    /**
+     * cocos constructor
+     * @function
+     */
+    ctor:function() {
+        cc.Node.prototype.ctor.call(this);
+    },
+    /**
+     * cc.CustomNode instance Method A
+     * @function
+     */
+    funcA:function() {},
+    /**
+     * cc.CustomNode instance Method B
+     * @function
+     */
+    funcB:function() {}
+});
+
+/** 
+ * cc.CustomNode Class Static Method
+ * @return {cc.CustomNode}
+ * @example
+ * // example
+ * var node = cc.CustomNode.create();
+ */
+cc.CustomNode.create = function() {};
+
+
+
+
+
+var MainMenuLayer = cc.Layer.extend({
+    ctor:function () {
+        this._super();
+
+        this.winSize = cc.director.getWinSize();
+        var demoTitle = new cc.LabelTTF("Cocos2d-JS jsdoc", "Verdana", 32);
+        demoTitle.setPosition(this.winSize.width * 0.5, this.winSize.height * 0.95);
+        this.addChild(demoTitle);
+
+        return true;
+    }
+});
+
+var MainMenuScene = cc.Scene.extend({
+    onEnter:function () {
+        this._super();
+        var layer = new MainMenuLayer();
+        this.addChild(layer);
+    }
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Thu May 19 2016 14:38:08 GMT+0800 (CST) using the docdash theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

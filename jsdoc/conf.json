@@ -1,0 +1,14 @@
+{
+    "tags": {
+    },
+    "source": {
+        "include": [
+            "../SampleProject/src/MainMenuScene.js"
+        ]
+    },
+    "plugins": ["plugins/markdown"],
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    }
+}
